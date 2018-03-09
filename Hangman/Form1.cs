@@ -29,6 +29,7 @@ namespace Hangman
             guess.Enabled = false;
             lifeBar.Value = 0;
             fileStatus.Text = "No file loaded";
+            result.Text = "";
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -71,6 +72,11 @@ namespace Hangman
 
         private void stopGame_Click(object sender, EventArgs e)
         {
+            stop();
+        }
+
+        private void stop()
+        {
             lifeBar.Value = 0;
             livesSelector.Enabled = true;
             startGame.Enabled = true;
@@ -92,9 +98,10 @@ namespace Hangman
             loadDefault.Enabled = false;
             guess.Enabled = true;
             allUsed = "";
-
-
-            render();
+            usedLetters.Text = "";
+            wordOutput.Text = "";
+            result.Text = "";
+            updateState();
         }
 
         private void loadDefault_Click(object sender, EventArgs e)
@@ -138,19 +145,38 @@ namespace Hangman
             }
         }
 
-        public void render()
+        public void updateState()
         {
-            wordOutput.Text = "";
-            for (int i = 0; i < theWord.Length; i++)
+            if (lifeBar.Value > 0)
             {
-                if (allUsed.ToLower().Contains(theWord.ToLower()[i]))
+                wordOutput.Text = "";
+                for (int i = 0; i < theWord.Length; i++)
                 {
-                    wordOutput.Text += theWord.ToLower()[i] + " ";
+                    if (allUsed.ToLower().Contains(theWord.ToLower()[i]))
+                    {
+                        wordOutput.Text += theWord.ToLower()[i] + " ";
+                    }
+                    else
+                    {
+                        wordOutput.Text += "_ ";
+                    }
                 }
-                else
+                bool win = true;
+                for(int j = 0; j < theWord.Length; j++)
+                    if (!allUsed.ToLower().Contains(theWord[j]))
+                        win = false;
+                if(win)
                 {
-                    wordOutput.Text += "_ ";
+                    result.ForeColor = Color.Green;
+                    result.Text = "You won. The word was " + theWord;
+                    stop();
                 }
+            }
+            else
+            {
+                result.ForeColor = Color.Red;
+                result.Text = "You lost. The word was " + theWord;
+                stop();
             }
         }
 
@@ -172,7 +198,7 @@ namespace Hangman
                             lifeBar.Value--;
                     }
                 }
-                render();
+                updateState();
                 guess.Text = "";
             }
         }

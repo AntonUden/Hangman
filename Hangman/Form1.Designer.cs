@@ -32,20 +32,21 @@
             this.wordListFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.oWordList = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.loadDefault = new System.Windows.Forms.Button();
             this.startGame = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.noWordlistError = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.guess = new System.Windows.Forms.TextBox();
+            this.stopGame = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.livesSelector = new System.Windows.Forms.NumericUpDown();
             this.usedLetters = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lifeBar = new System.Windows.Forms.ProgressBar();
             this.wordOutput = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.stopGame = new System.Windows.Forms.Button();
-            this.guess = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.noWordlistError = new System.Windows.Forms.Label();
-            this.loadDefault = new System.Windows.Forms.Button();
+            this.result = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.livesSelector)).BeginInit();
@@ -87,6 +88,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Wordlist selector";
             // 
+            // loadDefault
+            // 
+            this.loadDefault.Location = new System.Drawing.Point(9, 71);
+            this.loadDefault.Name = "loadDefault";
+            this.loadDefault.Size = new System.Drawing.Size(185, 23);
+            this.loadDefault.TabIndex = 2;
+            this.loadDefault.Text = "Load english wordlist";
+            this.loadDefault.UseVisualStyleBackColor = true;
+            this.loadDefault.Click += new System.EventHandler(this.loadDefault_Click);
+            // 
             // startGame
             // 
             this.startGame.Location = new System.Drawing.Point(6, 19);
@@ -112,6 +123,53 @@
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Game";
+            // 
+            // noWordlistError
+            // 
+            this.noWordlistError.AutoSize = true;
+            this.noWordlistError.ForeColor = System.Drawing.Color.Red;
+            this.noWordlistError.Location = new System.Drawing.Point(6, 113);
+            this.noWordlistError.Name = "noWordlistError";
+            this.noWordlistError.Size = new System.Drawing.Size(143, 26);
+            this.noWordlistError.TabIndex = 13;
+            this.noWordlistError.Text = "You need to select a wordlist\r\nbefore you start the game";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 74);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(69, 13);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Set max lives";
+            // 
+            // guess
+            // 
+            this.guess.Location = new System.Drawing.Point(6, 205);
+            this.guess.Name = "guess";
+            this.guess.Size = new System.Drawing.Size(188, 20);
+            this.guess.TabIndex = 9;
+            this.guess.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.guess.TextChanged += new System.EventHandler(this.guess_TextChanged);
+            // 
+            // stopGame
+            // 
+            this.stopGame.Location = new System.Drawing.Point(6, 48);
+            this.stopGame.Name = "stopGame";
+            this.stopGame.Size = new System.Drawing.Size(188, 23);
+            this.stopGame.TabIndex = 11;
+            this.stopGame.Text = "Stop game";
+            this.stopGame.UseVisualStyleBackColor = true;
+            this.stopGame.Click += new System.EventHandler(this.stopGame_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 189);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(109, 13);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Type your guess here";
             // 
             // livesSelector
             // 
@@ -141,6 +199,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.result);
             this.groupBox3.Controls.Add(this.lifeBar);
             this.groupBox3.Controls.Add(this.wordOutput);
             this.groupBox3.Controls.Add(this.label1);
@@ -176,62 +235,14 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "Used letters";
             // 
-            // label2
+            // result
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 189);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(109, 13);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Type your guess here";
-            // 
-            // stopGame
-            // 
-            this.stopGame.Location = new System.Drawing.Point(6, 48);
-            this.stopGame.Name = "stopGame";
-            this.stopGame.Size = new System.Drawing.Size(188, 23);
-            this.stopGame.TabIndex = 11;
-            this.stopGame.Text = "Stop game";
-            this.stopGame.UseVisualStyleBackColor = true;
-            this.stopGame.Click += new System.EventHandler(this.stopGame_Click);
-            // 
-            // guess
-            // 
-            this.guess.Location = new System.Drawing.Point(6, 205);
-            this.guess.Name = "guess";
-            this.guess.Size = new System.Drawing.Size(188, 20);
-            this.guess.TabIndex = 9;
-            this.guess.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.guess.TextChanged += new System.EventHandler(this.guess_TextChanged);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 74);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(69, 13);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "Set max lives";
-            // 
-            // noWordlistError
-            // 
-            this.noWordlistError.AutoSize = true;
-            this.noWordlistError.ForeColor = System.Drawing.Color.Red;
-            this.noWordlistError.Location = new System.Drawing.Point(6, 113);
-            this.noWordlistError.Name = "noWordlistError";
-            this.noWordlistError.Size = new System.Drawing.Size(143, 26);
-            this.noWordlistError.TabIndex = 13;
-            this.noWordlistError.Text = "You need to select a wordlist\r\nbefore you start the game";
-            // 
-            // loadDefault
-            // 
-            this.loadDefault.Location = new System.Drawing.Point(9, 71);
-            this.loadDefault.Name = "loadDefault";
-            this.loadDefault.Size = new System.Drawing.Size(185, 23);
-            this.loadDefault.TabIndex = 2;
-            this.loadDefault.Text = "Load english wordlist";
-            this.loadDefault.UseVisualStyleBackColor = true;
-            this.loadDefault.Click += new System.EventHandler(this.loadDefault_Click);
+            this.result.AutoSize = true;
+            this.result.Location = new System.Drawing.Point(6, 71);
+            this.result.Name = "result";
+            this.result.Size = new System.Drawing.Size(52, 13);
+            this.result.TabIndex = 9;
+            this.result.Text = "---------------";
             // 
             // gameStart
             // 
@@ -277,6 +288,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox guess;
         private System.Windows.Forms.Button loadDefault;
+        private System.Windows.Forms.Label result;
     }
 }
 
