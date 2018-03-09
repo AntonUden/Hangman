@@ -44,7 +44,7 @@ namespace Hangman
             try
             {
                 fileStatus.Text = "Reading file...";
-                string[] lines = File.ReadAllLines(wordListFileDialog.FileName);
+                string[] lines = File.ReadAllLines(wordListFileDialog.FileName, Encoding.GetEncoding("iso-8859-1"));
                 foreach (string line in lines)
                 {
                     //Console.WriteLine(line);
