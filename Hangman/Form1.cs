@@ -84,6 +84,7 @@ namespace Hangman
             oWordList.Enabled = true;
             loadDefault.Enabled = true;
             guess.Enabled = false;
+            godmode.Enabled = true;
         }
 
         private void startGame_Click(object sender, EventArgs e)
@@ -97,6 +98,7 @@ namespace Hangman
             oWordList.Enabled = false;
             loadDefault.Enabled = false;
             guess.Enabled = true;
+            godmode.Enabled = false;
             allUsed = "";
             usedLetters.Text = "";
             wordOutput.Text = "";
@@ -194,12 +196,24 @@ namespace Hangman
                     {
                         allUsed += guess.Text.ToLower()[0];
                         usedLetters.Text += guess.Text.ToLower()[0] + " ";
-                        if(lifeBar.Value > 0)
+                        if(lifeBar.Value > 0 && !godmode.Checked)
                             lifeBar.Value--;
                     }
                 }
                 updateState();
                 guess.Text = "";
+            }
+        }
+
+        private void godmode_CheckedChanged(object sender, EventArgs e)
+        {
+            if(godmode.Checked)
+            {
+                livesSelector.Enabled = false;
+            }
+            else
+            {
+                livesSelector.Enabled = true;
             }
         }
     }

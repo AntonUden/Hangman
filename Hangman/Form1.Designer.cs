@@ -47,6 +47,7 @@
             this.wordOutput = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.result = new System.Windows.Forms.Label();
+            this.godmode = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.livesSelector)).BeginInit();
@@ -110,6 +111,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.godmode);
             this.groupBox2.Controls.Add(this.noWordlistError);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.guess);
@@ -128,7 +130,7 @@
             // 
             this.noWordlistError.AutoSize = true;
             this.noWordlistError.ForeColor = System.Drawing.Color.Red;
-            this.noWordlistError.Location = new System.Drawing.Point(6, 113);
+            this.noWordlistError.Location = new System.Drawing.Point(6, 136);
             this.noWordlistError.Name = "noWordlistError";
             this.noWordlistError.Size = new System.Drawing.Size(143, 26);
             this.noWordlistError.TabIndex = 13;
@@ -244,6 +246,17 @@
             this.result.TabIndex = 9;
             this.result.Text = "---------------";
             // 
+            // godmode
+            // 
+            this.godmode.AutoSize = true;
+            this.godmode.Location = new System.Drawing.Point(6, 116);
+            this.godmode.Name = "godmode";
+            this.godmode.Size = new System.Drawing.Size(89, 17);
+            this.godmode.TabIndex = 14;
+            this.godmode.Text = "Infinite health";
+            this.godmode.UseVisualStyleBackColor = true;
+            this.godmode.CheckedChanged += new System.EventHandler(this.godmode_CheckedChanged);
+            // 
             // gameStart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -289,6 +302,7 @@
         private System.Windows.Forms.TextBox guess;
         private System.Windows.Forms.Button loadDefault;
         private System.Windows.Forms.Label result;
+        private System.Windows.Forms.CheckBox godmode;
     }
 }
 
