@@ -85,6 +85,7 @@ namespace Hangman
             loadDefault.Enabled = true;
             guess.Enabled = false;
             godmode.Enabled = true;
+            startGame.Focus();
         }
 
         private void startGame_Click(object sender, EventArgs e)
@@ -104,6 +105,7 @@ namespace Hangman
             wordOutput.Text = "";
             result.Text = "";
             updateState();
+            guess.Focus();
         }
 
         private void loadDefault_Click(object sender, EventArgs e)
