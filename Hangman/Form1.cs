@@ -39,34 +39,41 @@ namespace Hangman
 
         private void oWordList_Click(object sender, EventArgs e)
         {
-            words.Clear();
             wordListFileDialog.ShowDialog();
-            try
+            if (File.Exists(wordListFileDialog.FileName))
             {
-                fileStatus.Text = "Reading file...";
-                string[] lines = File.ReadAllLines(wordListFileDialog.FileName, Encoding.GetEncoding("iso-8859-1"));
-                foreach (string line in lines)
+                words.Clear();
+                try
                 {
-                    //Console.WriteLine(line);
-                    words.Add(line);
+                    fileStatus.Text = "Reading file...";
+                    string[] lines = File.ReadAllLines(wordListFileDialog.FileName, Encoding.GetEncoding("iso-8859-1"));
+                    foreach (string line in lines)
+                    {
+                        //Console.WriteLine(line);
+                        words.Add(line);
+                    }
+                    Console.WriteLine("Loaded " + words.Count + " words.");
+                    fileStatus.Text = words.Count + " words loaded";
                 }
-                Console.WriteLine("Loaded " + words.Count + " words.");
-                fileStatus.Text = words.Count + " words loaded";
-            }
-            catch(Exception ex)
-            {
-                fileStatus.Text = "Error reading file";
-                Console.WriteLine(ex.Message);
-            }
-            if (words.Count > 0)
-            {
-                startGame.Enabled = true;
-                noWordlistError.Visible = false;
+                catch (Exception ex)
+                {
+                    fileStatus.Text = "Error reading file";
+                    Console.WriteLine(ex.Message);
+                }
+                if (words.Count > 0)
+                {
+                    startGame.Enabled = true;
+                    noWordlistError.Visible = false;
+                }
+                else
+                {
+                    startGame.Enabled = false;
+                    noWordlistError.Visible = true;
+                }
             }
             else
             {
-                startGame.Enabled = false;
-                noWordlistError.Visible = true;
+                fileStatus.Text = "File not found";
             }
         }
 
