@@ -35,6 +35,7 @@
             this.loadDefault = new System.Windows.Forms.Button();
             this.startGame = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.godmode = new System.Windows.Forms.CheckBox();
             this.noWordlistError = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.guess = new System.Windows.Forms.TextBox();
@@ -43,11 +44,10 @@
             this.livesSelector = new System.Windows.Forms.NumericUpDown();
             this.usedLetters = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.result = new System.Windows.Forms.Label();
             this.lifeBar = new System.Windows.Forms.ProgressBar();
             this.wordOutput = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.result = new System.Windows.Forms.Label();
-            this.godmode = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.livesSelector)).BeginInit();
@@ -125,6 +125,17 @@
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Game";
+            // 
+            // godmode
+            // 
+            this.godmode.AutoSize = true;
+            this.godmode.Location = new System.Drawing.Point(6, 116);
+            this.godmode.Name = "godmode";
+            this.godmode.Size = new System.Drawing.Size(89, 17);
+            this.godmode.TabIndex = 14;
+            this.godmode.Text = "Infinite health";
+            this.godmode.UseVisualStyleBackColor = true;
+            this.godmode.CheckedChanged += new System.EventHandler(this.godmode_CheckedChanged);
             // 
             // noWordlistError
             // 
@@ -212,6 +223,16 @@
             this.groupBox3.TabIndex = 6;
             this.groupBox3.TabStop = false;
             // 
+            // result
+            // 
+            this.result.AutoSize = true;
+            this.result.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.result.Location = new System.Drawing.Point(6, 71);
+            this.result.Name = "result";
+            this.result.Size = new System.Drawing.Size(84, 20);
+            this.result.TabIndex = 9;
+            this.result.Text = "---------------";
+            // 
             // lifeBar
             // 
             this.lifeBar.Location = new System.Drawing.Point(6, 45);
@@ -236,26 +257,6 @@
             this.label1.Size = new System.Drawing.Size(63, 13);
             this.label1.TabIndex = 6;
             this.label1.Text = "Used letters";
-            // 
-            // result
-            // 
-            this.result.AutoSize = true;
-            this.result.Location = new System.Drawing.Point(6, 71);
-            this.result.Name = "result";
-            this.result.Size = new System.Drawing.Size(52, 13);
-            this.result.TabIndex = 9;
-            this.result.Text = "---------------";
-            // 
-            // godmode
-            // 
-            this.godmode.AutoSize = true;
-            this.godmode.Location = new System.Drawing.Point(6, 116);
-            this.godmode.Name = "godmode";
-            this.godmode.Size = new System.Drawing.Size(89, 17);
-            this.godmode.TabIndex = 14;
-            this.godmode.Text = "Infinite health";
-            this.godmode.UseVisualStyleBackColor = true;
-            this.godmode.CheckedChanged += new System.EventHandler(this.godmode_CheckedChanged);
             // 
             // gameStart
             // 
