@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(gameStart));
             this.fileStatus = new System.Windows.Forms.Label();
             this.wordListFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.oWordList = new System.Windows.Forms.Button();
@@ -266,6 +267,7 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(800, 400);
             this.MinimumSize = new System.Drawing.Size(800, 400);
             this.Name = "gameStart";
