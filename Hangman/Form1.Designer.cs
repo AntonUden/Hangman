@@ -132,9 +132,9 @@
             this.godmode.AutoSize = true;
             this.godmode.Location = new System.Drawing.Point(6, 116);
             this.godmode.Name = "godmode";
-            this.godmode.Size = new System.Drawing.Size(89, 17);
+            this.godmode.Size = new System.Drawing.Size(79, 17);
             this.godmode.TabIndex = 14;
-            this.godmode.Text = "Infinite health";
+            this.godmode.Text = "Infinite tries";
             this.godmode.UseVisualStyleBackColor = true;
             this.godmode.CheckedChanged += new System.EventHandler(this.godmode_CheckedChanged);
             // 
@@ -153,9 +153,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(6, 74);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(69, 13);
+            this.label3.Size = new System.Drawing.Size(67, 13);
             this.label3.TabIndex = 12;
-            this.label3.Text = "Set max lives";
+            this.label3.Text = "Set max tries";
             // 
             // guess
             // 
